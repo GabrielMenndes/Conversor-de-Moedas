@@ -1,15 +1,19 @@
 const convertButton = document.querySelector(".convertButton")
 const currencySelect = document.querySelector(".currency-select")
 
-function convertValues() {
-    const inputCurrencyValue = document.querySelector(".input-currency").value
+
+async function convertValues() {
+    const inputCurrencyValue = Number(document.querySelector(".input-currency").value)
     const currencyValueToConvert = document.querySelector(".currency-value-to-convert") // Valor Em Reall
     const currencyValueToConverted = document.querySelector(".currency-value") // Outras Moedas
 
-    const dolarToday = 5.44
-    const euroToday = 6.34
-    const libraEsterlina = 7.26
-    const bicoinToday = 487005.10
+    const data = await fetch("https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL,GBP-BRL").then(response => response.json())
+
+    const dolarToday = (Number(data.USDBRL.bid) + Number(data.USDBRL.ask)) / 2
+    const euroToday = (Number(data.EURBRL.bid) + Number(data.EURBRL.ask)) / 2
+    const bitcoinToday = (Number(data.BTCBRL.bid) + Number(data.BTCBRL.ask)) / 2
+    const libraEsterlina = (Number(data.GBPBRL.bid) + Number(data.GBPBRL.ask)) / 2
+
 
 
     if (currencySelect.value == "dolar") {
@@ -38,7 +42,7 @@ function convertValues() {
             style: "currency",
             currency: "BTC",
            
-        }).format(inputCurrencyValue / bicoinToday)
+        }).format(inputCurrencyValue / bitcoinToday)
     }
 
     currencyValueToConvert.innerHTML = new Intl.NumberFormat("pt-BR", {
