@@ -9,54 +9,61 @@
 body {
     background: #0400ff;
     background: linear-gradient(90deg, rgba(4, 0, 255, 1) 0%, rgba(0, 247, 99, 1) 57%, rgba(68, 201, 111, 1) 70%, rgba(119, 213, 125, 1) 88%, rgba(194, 230, 145, 1) 93%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 10px 0;
 }
 
 .logo{
-    width: 300px;
-    display: block;
-    margin: 20px auto;
+    width: 200px;
+    margin: 0;
 }
 
 main {
     width: 375px;
     border-radius: 20px;
     background-color: white;
-    margin: 0 auto 40px;
-    padding: 44px 24px 23px;
-
+    padding: 20px 16px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
 label {
     color: #777777;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
 select,input {
     background: white;
     border: 1px solid #BBBBBB;
     border-radius: 4px;
-    height: 48px;
+    height: 40px;
     width: 100%;
-    margin-bottom: 24px;
     appearance: none;
-    padding-left: 18px;
+    padding-left: 12px;
     font-weight: 700;
-    font-size: 16px;
+    font-size: 14px;
     color: #555555;
     cursor: pointer;
 }
 input {
     cursor: auto; 
 }
-/* Remove as setas (spinners) dos inputs do tipo number */
 input[type="number"] {
-  -moz-appearance: textfield; /* Firefox */
-  appearance: none; /* Propriedade padrão (para o futuro) */
+  -moz-appearance: textfield;
+  appearance: none;
 }
 
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none; /* Chrome, Safari e Edge */
+  -webkit-appearance: none;
   margin: 0;
 }
 button {
@@ -64,10 +71,10 @@ button {
     border-radius: 5px;
     width: 100%;
     border: none;
-    height: 48px;
+    height: 40px;
     color: white;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
 }
 button:hover {
@@ -79,14 +86,13 @@ button:active {
 section {
     border: 1px solid rgba(0, 247, 99, 1);
     border-radius: 20px;
-    margin-top: 33px;
-    padding: 12px;
+    margin-top: 10px;
+    padding: 8px;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-.seta {
-    margin: 15px;
+    justify-content: center;
+    gap: 8px;
 }
 .currency-box {
     display: flex;
@@ -96,12 +102,11 @@ section {
 }
 .currency {
     color: #777777;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .currency-value, .currency-value-to-convert{
     color: #555555;
     font-weight: 700;
-    font-size: 20px;
-
+    font-size: 16px;
 }

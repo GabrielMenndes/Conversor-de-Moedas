@@ -4,8 +4,8 @@ const currencySelect = document.querySelector(".currency-select")
 
 async function convertValues() {
     const inputCurrencyValue = Number(document.querySelector(".input-currency").value)
-    const currencyValueToConvert = document.querySelector(".currency-value-to-convert") // Valor Em Reall
-    const currencyValueToConverted = document.querySelector(".currency-value") // Outras Moedas
+    const currencyValueToConvert = document.querySelector(".currency-value-to-convert")
+    const currencyValueToConverted = document.querySelector(".currency-value")
 
     const data = await fetch("https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL,GBP-BRL").then(response => response.json())
 
