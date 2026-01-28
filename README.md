@@ -5,6 +5,10 @@ Um conversor de moedas moderno e responsivo que permite converter Real Brasileir
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
 
+## 🌐 Demo
+
+Acesse a aplicação online: **[https://gabrielmenndes.github.io/Conversor-de-Moedas/](https://gabrielmenndes.github.io/Conversor-de-Moedas/)**
+
 ## ✨ Características
 
 - 🔄 **Conversão Bidirecional Completa** - Converta entre QUALQUER moeda (Real ↔ Dólar ↔ Euro ↔ Libra ↔ Bitcoin)
