@@ -163,19 +163,6 @@ Conversor-de-Moedas/
 - Taxas em tempo real via AwesomeAPI
 - Conversão entre qualquer combinação de moedas
 
-## 🤝 Contribuindo
-
-Contribuições são bem-vindas! Para mudanças importantes, abra uma issue primeiro para discutir quais mudanças você gostaria de fazer.
-
-1. Faça um Fork do projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
-3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
-4. Push para a branch (`git push origin feature/AmazingFeature`)
-5. Abra um Pull Request
-
-## 📄 Licença
-
-Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ## 👨‍💻 Autor
 
@@ -188,12 +175,10 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICE
 - [Google Fonts](https://fonts.google.com/) - Pela fonte Roboto
 - Todos os contribuidores e usuários
 
-## 📞 Suporte
 
-Se você tiver dúvidas ou sugestões, abra uma [issue](https://github.com/seu-usuario/Conversor-de-Moedas/issues) ou entre em contato.
 
 ---
 
 <p align="center">
-  Desenvolvido com ❤️ por Gabriel Mende
+  Desenvolvido com ❤️ por Gabriel Mendes
 </p>
