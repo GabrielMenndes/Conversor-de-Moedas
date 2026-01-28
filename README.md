@@ -7,8 +7,9 @@ Um conversor de moedas moderno e responsivo que permite converter Real Brasileir
 
 ## ✨ Características
 
-- 🔄 **Conversão Bidirecional** - Converta entre QUALQUER moeda (Real ↔ Dólar ↔ Euro ↔ Libra ↔ Bitcoin)
-- 💰 **5 Moedas Suportadas** - Real, Dólar, Euro, Libra Esterlina e Bitcoin
+- 🔄 **Conversão Bidirecional Completa** - Converta entre QUALQUER moeda (Real ↔ Dólar ↔ Euro ↔ Libra ↔ Bitcoin)
+- 💰 **6 Moedas Suportadas** - Real, Dólar, Euro, Libra Esterlina, Bitcoin e Real Brasileiro
+- 🚫 **Validação Inteligente** - A moeda de origem fica desabilitada no dropdown de destino
 - 📱 **Design Responsivo** - Funciona perfeitamente em desktop, tablet e mobile
 - 🎨 **Interface Moderna** - Design limpo e intuitivo com gradiente vibrante
 - ⚡ **Performance** - Carregamento rápido e sem dependências externas
@@ -61,8 +62,8 @@ Acesse `http://localhost:8000` no seu navegador.
 
 ## 📖 Como Usar
 
-1. **Selecione a Moeda de Origem**: Escolha de qual moeda você quer converter (Real, Dólar, Euro, Libra ou Bitcoin)
-2. **Selecione a Moeda de Destino**: Escolha para qual moeda quer converter
+1. **Selecione a Moeda de Origem**: Escolha de qual moeda você quer converter (Real, Dólar, Euro, Libra, Bitcoin)
+2. **Selecione a Moeda de Destino**: Escolha para qual moeda quer converter (a moeda selecionada como origem fica desabilitada)
 3. **Digite o Valor**: Insira o valor que deseja converter
 4. **Clique em Converter ou Pressione Enter**: O resultado será exibido instantaneamente
 5. **Veja o Resultado**: A conversão aparece no card de resultado com as bandeiras dos países
@@ -73,6 +74,7 @@ Acesse `http://localhost:8000` no seu navegador.
 - Euro → Real
 - Libra → Euro
 - Bitcoin → Dólar
+- Real → Bitcoin
 - **E qualquer outra combinação!**
 
 ## 🛠️ Tecnologias Utilizadas
@@ -123,10 +125,11 @@ Conversor-de-Moedas/
 
 ## 🎯 Melhorias Implementadas
 
-- ✅ Código refatorado com melhor estrutura
-- ✅ **Conversão bidirecional entre todas as moedas**
+- ✅ Código refatorado com melhor estrutura incluindo Real**
+- ✅ **Validação inteligente de moedas (desabilita origem no destino)**
 - ✅ Dropdown de origem com todas as moedas disponíveis
-- ✅ Nomes de variáveis descritivos
+- ✅ Dropdown de destino com todas as moedas disponíveis (exceto a selecionada como origem)
+- ✅ Nomes de variáveis descritivosescritivos
 - ✅ Comentários em JSDoc
 - ✅ Seletor baseado em HTML semântico
 - ✅ Melhor tratamento de erros
@@ -152,9 +155,10 @@ Conversor-de-Moedas/
 
 ## 📝 Changelog
 
-### v1.0.0 (2024)
-- Lançamento inicial com conversão bidirecional
-- Suporte a 5 moedas principais (Real, Dólar, Euro, Libra, Bitcoin)
+### v1.0.0 (2024) completa
+- Suporte a 6 moedas principais (Real, Dólar, Euro, Libra, Bitcoin, Real)
+- Interface responsiva
+- Validação inteligente (moeda de origem desabilitada no destino)rincipais (Real, Dólar, Euro, Libra, Bitcoin)
 - Interface responsiva
 - Taxas em tempo real via AwesomeAPI
 - Conversão entre qualquer combinação de moedas

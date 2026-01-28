@@ -1,5 +1,12 @@
 // Configuração de moedas suportadas
 const CURRENCY_CONFIG = {
+    brl: {
+        name: "Real Brasileiro",
+        symbol: "R$",
+        locale: "pt-BR",
+        flag: "./assets/brasil 2.png",
+        apiCode: "BRL"
+    },
     usd: {
         name: "Dólar Americano",
         symbol: "US$",
@@ -63,41 +70,51 @@ async function fetchExchangeRates() {
     }
 }
 
-/**
- * Formata um valor como moeda
- */
 function formatCurrency(value, currencyCode, locale) {
+    return new Intl.NumberFormat(locale, {
+        style: "currency",
+        currency: currencyCode
     }).format(value)
 }
 
-/**
- * Atualiza a moeda de origem (imagem e nome)
- */
+function updateSourceCurrency() {
+    const selectedCurrency = fromCurrencySelect.value
+    const config = CURRENCY_CONFIG[selectedCurrency]
     
     fromCurrencyNameElement.textContent = config.name
     fromCurrencyFlagElement.src = config.flag
     fromCurrencyFlagElement.alt = `Bandeira de ${config.name}`
     
+    updateTargetCurrencyOptions()
     convertCurrency()
 }
 
-/**
- * Atualiza a moeda de destino (imagem e nome)
- */
+function updateTargetCurrencyOptions() {
+    const selectedFromCurrency = fromCurrencySelect.value
+    const options = toCurrencySelect.querySelectorAll("option")
+    
+    options.forEach(option => {
+        if (option.value === selectedFromCurrency) {
+            option.disabled = true
+            option.textContent = option.textContent.split(" (")[0] + " (indisponível)"
+        } else {
+            option.disabled = false
+            option.textContent = option.textContent.replace(" (indisponível)", "")
+        }
+    })
+}
+
 function updateTargetCurrency() {
     const selectedCurrency = toCurrencySelect.value
     const config = CURRENCY_CONFIG[selectedCurrency]
+    
+    currencyNameElement.textContent = config.name
+    currencyFlagElement.src = config.flag
     currencyFlagElement.alt = `Bandeira de ${config.name}`
     
     convertCurrency()
 }
 
-/**
- * Realiza a conversão de moeda
- */
-function convertCurrency() {
-    const amount = Number(amountInput.value) || 0
-    const fromCurrency = fromCurrencySelect.value
 function convertCurrency() {
     const amount = Number(amountInput.value) || 0
     const fromCurrency = fromCurrencySelect.value
@@ -109,12 +126,21 @@ function convertCurrency() {
     
     if (fromCurrency === toCurrency) {
         valueToElement.textContent = formatCurrency(amount, toCurrency.toUpperCase(), toConfig.locale)
+    } else if (fromCurrency === "brl") {
+        const convertedValue = amount / exchangeRates[toCurrency]
+        valueToElement.textContent = formatCurrency(convertedValue, toCurrency.toUpperCase(), toConfig.locale)
+    } else if (toCurrency === "brl") {
+        const convertedValue = amount * exchangeRates[fromCurrency]
+        valueToElement.textContent = formatCurrency(convertedValue, "BRL", toConfig.locale)
     } else if (exchangeRates[fromCurrency] && exchangeRates[toCurrency]) {
+        const amountInBRL = amount * exchangeRates[fromCurrency]
+        const convertedValue = amountInBRL / exchangeRates[toCurrency]
+        valueToElement.textContent = formatCurrency(convertedValue, toCurrency.toUpperCase(), toConfig.locale)
+    } else {
+        valueToElement.textContent = `${toConfig.symbol} 0,00`
+    }
 }
 
-/**
- * Event Listeners
- */
 form.addEventListener("submit", (e) => {
     e.preventDefault()
     convertCurrency()
@@ -124,11 +150,5 @@ fromCurrencySelect.addEventListener("change", updateSourceCurrency)
 toCurrencySelect.addEventListener("change", updateTargetCurrency)
 amountInput.addEventListener("input", convertCurrency)
 
-form.addEventListener("submit", (e) => {
-    e.preventDefault()
-    convertCurrency()
-})
-
-fromCurrencySelect.addEventListener("change", updateSourceCurrency)
-toCurrencySelect.addEventListener("change", updateTargetCurrency)
-amountInput.addEventListener("input", convertCurrency)
+updateTargetCurrencyOptions()
+fetchExchangeRates()
